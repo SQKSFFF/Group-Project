@@ -70,4 +70,30 @@ void recommendMovie(int choice) {
 int main() {
     int choice;
     bool running = true;
-    
+        cout << "Welcome to the Netflix movie recommendation assistant!\n";
+    cout << "This program recommends a Netflix movie based on your genre preferences\n";
+
+    while (running) {
+        displayMenu();
+        cin >> choice;
+
+        // Input validation: prevent non-numeric input
+        if (cin.fail()) {
+            cin.clear(); // Clear error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+            cout << "Invalid input; please enter a number\n";
+            continue;
+        }
+
+        if (choice == 0) {
+            cout << "\nThank you for using this service.Bye!\n";
+            running = false;
+        } else if (choice >= 1 && choice <= 8) {
+            recommendMovie(choice);
+        } else {
+            cout << "\nInvalid option; please enter a number between 0 and 8\n";
+        }
+    }
+
+    return 0;
+}
