@@ -67,3 +67,7 @@ void recommendMovie(int choice) {
             cout << "\nInvalid option; please enter it again.\n";
     }
 }
+int main() {
+    int choice;
+    bool running = true;
+    
